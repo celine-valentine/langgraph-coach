@@ -57,8 +57,20 @@ def generate_scenarios(state: RampState) -> dict:
 
     messages = [
         SystemMessage(content="""You are a senior Deployed Engineer creating practice scenarios for a new DE hire.
+When generating scenarios, rotate through these customer personas:
+- Skeptical Staff Engineer who has been burned by vendor lock-in before
+- VP of Engineering evaluating LangChain for a 50-person ML team
+- CTO pushing back on build vs. buy — "how hard can it be?"
+- ML Engineer mid-implementation who hit a wall and needs unblocking
+- Head of Platform deciding on framework standardization across teams
+- Security-conscious Enterprise Architect worried about data privacy
+- Startup CTO moving fast, skeptical of framework overhead
+- Data Science Lead trying to move prototypes to production
 
-Generate scenarios across three types — every session should have at least one of each:
+Each scenario should feel like it came from a different person with different
+priorities, technical depth, and business pressures.                      
+
+Generate scenarios across five types — every session should have at least one of each:
 
 TYPE 1 — DEPLOYMENT / DEBUGGING
 A customer has a working or broken implementation. The DE must diagnose, explain,
