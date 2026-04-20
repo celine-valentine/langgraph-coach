@@ -4,9 +4,9 @@ import os
 import streamlit as st
 from dotenv import load_dotenv
 
-from ramp_assistant.graph import build_evaluation_graph, build_ramp_graph
+from coach.graph import build_evaluation_graph, build_ramp_graph
 
-load_dotenv(dotenv_path="/Users/dandan/projects/ace-lc-interview/.env")
+load_dotenv()
 
 LANGCHAIN_DOCS = """
 LangChain is a framework for building applications powered by language models.
@@ -37,9 +37,9 @@ Key features:
 - Playground: Test prompts and chains interactively
 """
 
-st.set_page_config(page_title="Ace DE Interview", layout="wide")
-st.title("Ace DE Interview — Your Personal Prep Tutor")
-st.caption("Built with LangChain + LangGraph + Claude · Traces in LangSmith")
+st.set_page_config(page_title="LangGraph Coach", layout="wide")
+st.title("LangGraph Coach")
+st.caption("Technical scenario practice and coding drills · Built with LangGraph + Claude · Traces in LangSmith")
 
 st.markdown("""
 <style>
@@ -208,7 +208,7 @@ with tab2:
 
     if st.button("Generate Drill"):
         with st.spinner("Generating coding challenge..."):
-            from ramp_assistant.graph import build_drill_graph
+            from coach.graph import build_drill_graph
             drill_graph = build_drill_graph()
             drill_result = drill_graph.invoke({
                 "product_name": "LangChain",
@@ -257,7 +257,7 @@ with tab2:
         if st.button("Submit for code review"):
             if code_submission.strip():
                 with st.spinner("Reviewing your code..."):
-                    from ramp_assistant.graph import build_code_review_graph
+                    from coach.graph import build_code_review_graph
                     review_graph = build_code_review_graph()
                     review_result = review_graph.invoke({
                         "product_name": "LangChain",
@@ -325,7 +325,7 @@ with st.sidebar:
 
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
-                from ramp_assistant.drills import chat_with_docs
+                from coach.drills import chat_with_docs
                 answer = chat_with_docs(
                     question=question,
                     chat_history=st.session_state.chat_history[:-1],

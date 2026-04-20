@@ -1,9 +1,9 @@
 import json
 import os
 from dotenv import load_dotenv
-from ramp_assistant.graph import build_ramp_graph, build_evaluation_graph
+from coach.graph import build_ramp_graph, build_evaluation_graph
 
-load_dotenv(dotenv_path="/Users/dandan/projects/ace-lc-interview/.env")
+load_dotenv()
 
 print("KEY:", os.getenv("ANTHROPIC_API_KEY"))
 
@@ -44,7 +44,7 @@ def print_header(text):
 
 
 def main():
-    print_header("RAMP ASSISTANT — DE Interview Prep")
+    print_header("LANGGRAPH COACH — Technical Scenario Practice")
     print("  Built with LangChain + LangGraph + Claude")
     print("  Traces visible in LangSmith\n")
 
